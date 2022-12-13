@@ -2,17 +2,10 @@
 # Default tools build
 #
 
-# GCC requires a GNU sed so build an internal version if one is not
-# available
-#
-%define _internal_gsed_path %{_tmppath}/sb-%{_uid}/${SB_PREFIX_CLEAN}
-textproc/gsed-internal
-
 #
 # Build gdb first to raise the Python install error as early as
 # possible. GDB needs expat so it needs to be built before gdb.
 #
-%{with_rtems_dtc}
 %{with_rtems_expat}
 %{with_rtems_gmp}
 %{with_rtems_gdb}
